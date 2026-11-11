@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f3ef" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="description" content="A private digital wardrobe." />
+  <title>Seán's Wardrobe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section id="login-screen" class="login-screen">
+    <div class="login-brand"><span class="brand-icon">SW<span class="brand-dot">.</span></span> SEÁN'S WARDROBE</div>
+    <div class="login-panel">
+      <div class="login-illustration" aria-hidden="true">
+        <div class="wardrobe-line hanger-one">⌁</div><div class="hanging hanging-one"></div><div class="hanging hanging-two"></div><div class="hanging hanging-three"></div>
+        <div class="illustration-caption">YOUR COLLECTION, CURATED.</div>
+      </div>
+      <div class="login-form-panel">
+        <div class="eyebrow">YOUR PRIVATE SPACE</div>
+        <h1>Welcome to<br /><em>your wardrobe.</em></h1>
+        <p>Your entire collection, organised in one beautiful place.</p>
+        <form id="login-form" class="login-form">
+          <label for="login-email">Email address</label>
+          <input id="login-email" type="email" placeholder="you@example.com" required autocomplete="username" />
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" placeholder="Your password" required autocomplete="current-password" />
+          <p id="login-error" class="form-error" aria-live="polite"></p>
+          <button id="login-submit" type="submit" class="btn btn-primary btn-wide">Unlock my wardrobe <span>↗</span></button>
+        </form>
+        <div class="login-foot"><span class="lock-icon">✳</span> Private & secure. Only you can access your collection.</div>
+      </div>
+    </div>
+    <div class="login-bottom">AN EDITED LIFE, ONE PIECE AT A TIME.</div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top"><div class="sidebar-logo"><div class="brand-icon">SW<span class="brand-dot">.</span></div><div class="logo-label">SEÁN'S<br />WARDROBE</div></div><button class="icon-btn side-close" id="side-close" aria-label="Close menu">×</button></div>
+      <div class="side-section-label">COLLECTION</div>
+      <nav id="main-nav" class="main-nav" aria-label="Wardrobe navigation">
+        <button data-view="all" class="nav-link active"><span class="nav-icon" data-icon="grid"></span> All Items <span id="count-all" class="nav-count">0</span></button>
+        <button data-view="Tops" class="nav-link"><span class="nav-icon" data-icon="shirt"></span> Tops <span id="count-Tops" class="nav-count">0</span></button>
+        <button data-view="Bottoms" class="nav-link"><span class="nav-icon" data-icon="bottoms"></span> Bottoms <span id="count-Bottoms" class="nav-count">0</span></button>
+        <button data-view="Outerwear" class="nav-link"><span class="nav-icon" data-icon="layers"></span> Outerwear <span id="count-Outerwear" class="nav-count">0</span></button>
+        <button data-view="Footwear" class="nav-link"><span class="nav-icon" data-icon="shoe"></span> Footwear <span id="count-Footwear" class="nav-count">0</span></button>
+        <button data-view="Accessories" class="nav-link"><span class="nav-icon" data-icon="sparkles"></span> Accessories <span id="count-Accessories" class="nav-count">0</span></button>
+        <button data-view="Other" class="nav-link"><span class="nav-icon" data-icon="box"></span> Other <span id="count-Other" class="nav-count">0</span></button>
+      </nav>
+      <div class="side-divider"></div>
+      <div class="side-section-label">ARCHIVE</div>
+      <nav class="main-nav" aria-label="Archive navigation"><button data-view="sold" class="nav-link"><span class="nav-icon" data-icon="tag"></span> Sold <span id="count-sold" class="nav-count">0</span></button><button data-view="no-longer-own" class="nav-link"><span class="nav-icon" data-icon="archive"></span> No Longer Own <span id="count-no-longer-own" class="nav-count">0</span></button></nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-bottom"><div class="private-indicator"><span class="private-dot"></span> PRIVATE COLLECTION</div><button id="signout" class="signout"><span data-icon="logout"></span> Sign out</button></div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="topbar"><button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open menu"><span data-icon="menu"></span></button><div class="breadcrumbs">MY SPACE <span>/</span> <strong id="breadcrumb">ALL ITEMS</strong></div><div class="topbar-right"><div class="topbar-private"><span class="private-dot"></span> PRIVATE WARDROBE</div><div class="avatar">S</div></div></header>
+      <main class="content">
+        <div class="page-heading"><div><div class="eyebrow" id="page-kicker">THE COLLECTION</div><h1 id="page-title">My Wardrobe<span class="heading-period">.</span></h1><p id="page-subtitle">Every piece, one place. A collection that’s uniquely yours.</p></div><button id="add-item" class="btn btn-primary"><span data-icon="plus"></span> Add new item</button></div>
+        <section class="stats-grid" aria-label="Wardrobe statistics"><div class="stat-card"><div class="stat-label">TOTAL PIECES <span data-icon="grid"></span></div><div class="stat-bottom"><span class="stat-value" id="stat-total">0</span><span class="stat-note">In your wardrobe</span></div></div><div class="stat-card"><div class="stat-label">CATEGORIES <span data-icon="layers"></span></div><div class="stat-bottom"><span class="stat-value" id="stat-categories">0</span><span class="stat-note">With items</span></div></div><div class="stat-card"><div class="stat-label">ITEMS SOLD <span data-icon="tag"></span></div><div class="stat-bottom"><span class="stat-value" id="stat-sold">0</span><span class="stat-note">Archived as sold</span></div></div><div class="stat-card"><div class="stat-label">MOVED ON <span data-icon="archive"></span></div><div class="stat-bottom"><span class="stat-value" id="stat-gone">0</span><span class="stat-note">No longer owned</span></div></div></section>
+        <section class="collection-section"><div class="collection-header"><div class="collection-title-wrap"><h2 id="collection-title">Your pieces</h2><span id="result-count" class="count-pill">0 items</span></div><div class="toolbar"><label class="search-wrap"><span data-icon="search"></span><input id="search" type="search" placeholder="Search your wardrobe..." aria-label="Search wardrobe" /></label><select id="sort" aria-label="Sort items"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name A–Z</option><option value="brand">Brand A–Z</option></select></div></div>
+        <div id="filter-row" class="filter-row" aria-label="Filter by category"></div>
+        <div id="loading" class="loading">Loading your collection...</div><div id="items-grid" class="items-grid"></div>
+        <div id="empty-state" class="empty-state hidden"><div class="empty-symbol"><span data-icon="shirt"></span></div><h3 id="empty-title">A fresh start.</h3><p id="empty-description">Your wardrobe is waiting. Add your first piece to get started.</p><button id="empty-add" class="btn btn-primary">+ Add a piece</button></div>
+        </section>
+      </main>
+      <footer class="footer"><span>SEÁN'S WARDROBE <span class="footer-dot">●</span> YOUR PERSONAL COLLECTION</span><span>MADE FOR THE THINGS YOU LOVE.</span></footer>
+    </div>
+  </div>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><div class="eyebrow">YOUR COLLECTION</div><h2 id="modal-title">Add a new piece</h2></div><button id="close-modal" class="icon-btn modal-close" aria-label="Close">×</button></div><form id="item-form"><div class="form-scroll"><div class="upload-container"><div class="upload-heading">ITEM PHOTOS <span>UP TO 5</span></div><div id="photo-preview" class="photo-preview"></div><label for="photo-input" class="upload-drop"><span class="upload-icon" data-icon="upload"></span><strong>Click to upload photos</strong><span>JPG, PNG, WEBP or HEIC (where supported)</span></label><input type="file" id="photo-input" accept="image/*" multiple hidden /></div>
+      <div class="form-grid"><div class="field field-span"><label for="item-name">ITEM NAME <span class="required">*</span></label><input id="item-name" maxlength="100" required placeholder="e.g. Vintage navy sweater" /></div><div class="field"><label for="item-category">CATEGORY <span class="required">*</span></label><select id="item-category" required><option value="Tops">Tops</option><option value="Bottoms">Bottoms</option><option value="Outerwear">Outerwear</option><option value="Footwear">Footwear</option><option value="Accessories">Accessories</option><option value="Other">Other</option></select></div><div class="field"><label for="item-subcategory">TYPE</label><input id="item-subcategory" maxlength="60" placeholder="e.g. Hoodie, jeans, trainers" /></div><div class="field"><label for="item-brand">BRAND</label><input id="item-brand" maxlength="70" placeholder="e.g. Carhartt" /></div><div class="field"><label for="item-size">SIZE</label><input id="item-size" maxlength="30" placeholder="e.g. M, 32, UK 9" /></div><div class="field"><label for="item-colour">COLOUR</label><input id="item-colour" maxlength="50" placeholder="e.g. Forest green" /></div><div class="field"><label for="item-status">STATUS</label><select id="item-status"><option value="owned">In wardrobe</option><option value="sold">Sold</option><option value="no-longer-own">No longer own</option></select></div><div class="field field-span"><label for="item-notes">NOTES</label><textarea id="item-notes" rows="3" maxlength="600" placeholder="Anything worth remembering about this piece..."></textarea></div></div><p id="form-error" class="form-error" aria-live="polite"></p></div><div class="modal-actions"><button type="button" id="delete-item" class="btn btn-danger hidden">Delete item</button><div class="modal-actions-right"><button type="button" id="cancel-modal" class="btn btn-secondary">Cancel</button><button type="submit" id="save-item" class="btn btn-primary">Save piece <span>↗</span></button></div></div></form></section></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
